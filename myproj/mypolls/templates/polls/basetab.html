@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base table</title>
+</head>
+<body bgcolor="cyan">
+<table border="2">
+    {% if all_reg_records%}
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Occupation</th>
+    </tr>
+    Number of employees: {{all_reg_records|length}}
+        {% for name_value in all_reg_records %}
+
+    <tr>
+        <td><a href="/mypolls/polls/{{ name_value.name_text }}.html"/>{{name_value.name_text}}</td>
+        <td>{{name_value.gender_type}}</td>
+        <td>{{name_value.occupation_type}}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <p>No records are available.</p>
+     {% endif %}
+</table>
+</body>
+</html>
